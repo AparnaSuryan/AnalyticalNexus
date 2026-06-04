@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>AI in Job Applications | Aparna Suryanarayanan</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+	<style>
+		*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+		:root {
+			--teal: #1D9E75; --teal-dark: #0F6E56;
+			--bg: #0a0a0f; --bg2: #13131c; --bg3: #1c1c28;
+			--text: #f0f0f0; --text-muted: #9090a8;
+			--border: rgba(255,255,255,0.08);
+		}
+		html { scroll-behavior: smooth; }
+		body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+
+		nav {
+			position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+			display: flex; align-items: center; justify-content: space-between;
+			padding: 1.2rem calc((100% - 1200px) / 2 + 2rem);
+			background: rgba(10,10,15,0.85); backdrop-filter: blur(12px);
+			border-bottom: 1px solid var(--border);
+		}
+		.nav-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--teal); text-decoration: none; }
+		.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+		.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+		.nav-links a:hover, .nav-links a.active { color: var(--teal); }
+		.nav-icons { display: flex; gap: 1rem; list-style: none; }
+		.nav-icons a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+		.nav-icons a:hover { color: var(--teal); }
+
+		.blog-header {
+			padding: 8rem calc((100% - 1200px) / 2 + 2rem) 4rem;
+			max-width: 800px;
+			position: relative;
+		}
+		.blog-header::before {
+			content: ''; position: absolute; top: -100px; right: -100px;
+			width: 500px; height: 500px;
+			background: radial-gradient(circle, rgba(29,158,117,0.08) 0%, transparent 70%);
+			pointer-events: none;
+		}
+		.back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-muted); text-decoration: none; font-size: 0.875rem; margin-bottom: 2rem; transition: color 0.2s; }
+		.back-link:hover { color: var(--teal); }
+		.blog-tag { font-size: 0.8rem; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; display: block; }
+		.blog-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1.5rem; }
+		.blog-meta { color: var(--text-muted); font-size: 0.875rem; }
+
+		.blog-content {
+			max-width: 720px;
+			padding: 0 calc((100% - 1200px) / 2 + 2rem) 6rem;
+		}
+		.blog-content p { color: var(--text-muted); font-size: 1rem; line-height: 1.9; margin-bottom: 1.5rem; }
+		.blog-content p:first-child { font-size: 1.1rem; color: var(--text); }
+
+		.blog-nav {
+			max-width: 720px;
+			padding: 2rem calc((100% - 1200px) / 2 + 2rem);
+			border-top: 1px solid var(--border);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.blog-nav a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; display: flex; align-items: center; gap: 0.5rem; }
+		.blog-nav a:hover { color: var(--teal); }
+
+		footer {
+			background: var(--bg2); border-top: 1px solid var(--border);
+			padding: 3rem calc((100% - 1200px) / 2 + 2rem); display: flex;
+			align-items: center; justify-content: space-between;
+		}
+		.footer-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--teal); text-decoration: none; }
+		.footer-links { display: flex; gap: 2rem; list-style: none; }
+		.footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+		.footer-links a:hover { color: var(--teal); }
+		.footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+
+		@media (max-width: 768px) {
+			nav { padding: 1rem 1.5rem; }
+			.nav-links { display: none; }
+			.blog-header, .blog-content, .blog-nav { padding-left: 1.5rem; padding-right: 1.5rem; }
+			footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+		}
+	</style>
+</head>
+<body>
+
+<nav>
+	<a href="index.html" class="nav-logo">Analytical Nexus</a>
+	<ul class="nav-links">
+		<li><a href="index.html">Projects</a></li>
+		<li><a href="about.html">About</a></li>
+		<li><a href="blogs.html" class="active">Blogs</a></li>
+	</ul>
+	<ul class="nav-icons">
+		<li><a href="https://www.linkedin.com/in/aparna-s-51113815a" title="LinkedIn">in</a></li>
+		<li><a href="https://github.com/AparnaSuryan/Portfolio" title="GitHub">gh</a></li>
+	</ul>
+</nav>
+
+<div class="blog-header">
+	<a href="blogs.html" class="back-link">← Back to Blogs</a>
+	<span class="blog-tag">AI & Hiring</span>
+	<h1 class="blog-title">Navigating AI in Job Applications: Progress or Pitfall?</h1>
+	<p class="blog-meta">By Aparna Suryanarayanan</p>
+</div>
+
+<div class="blog-content">
+	<p>The integration of artificial intelligence in job applications has rapidly transformed the hiring landscape. From resume screening to automated interviews, AI-driven tools are becoming indispensable for recruiters aiming to streamline their processes. But while this technological leap offers undeniable efficiency, it also raises critical questions about fairness, bias, and the human touch in hiring decisions.</p>
+
+	<p>One of the primary reasons companies adopt AI in recruitment is efficiency. Traditional hiring methods can be time-consuming and resource-intensive. AI algorithms can quickly sift through thousands of resumes, identifying candidates who best match the job criteria based on keywords, experience, and qualifications. This speeds up the process and helps recruiters focus their attention on a shortlist of promising applicants.</p>
+
+	<p>Moreover, AI-powered tools like chatbots enhance candidate engagement by providing instant responses to queries, scheduling interviews, and even conducting preliminary assessments. This automation allows HR teams to allocate more time to strategic decision-making rather than administrative tasks.</p>
+
+	<p>Despite its advantages, AI in recruitment isn't without flaws. One of the most significant concerns is algorithmic bias. Since AI systems learn from historical data, they can inadvertently perpetuate existing biases present in past hiring decisions. For example, if a company has historically favored candidates from certain backgrounds, the AI may unknowingly prioritize similar profiles, leading to a lack of diversity.</p>
+
+	<p>Additionally, reliance on specific keywords in resumes can disadvantage candidates who may have the right skills but don't use the exact terminology preferred by the algorithm. This could result in qualified applicants being overlooked simply because their resumes don't match the AI's programmed patterns.</p>
+
+	<p>Another critical issue is the diminishing human element in hiring. While AI can efficiently process data, it lacks the ability to understand the nuances of human behavior, cultural fit, and emotional intelligence — essential factors in determining a candidate's potential success within a company.</p>
+
+	<p>Human recruiters bring empathy, intuition, and the ability to assess soft skills — qualities that AI cannot replicate. Over-reliance on technology risks reducing candidates to mere data points, missing out on unique attributes that don't fit into predefined algorithms.</p>
+
+	<p>The future of AI in job applications lies in finding a balance between technological efficiency and human insight. Companies should view AI as a tool to assist rather than replace human judgment. Implementing checks and balances — such as regular audits of AI systems for bias and ensuring human oversight in final hiring decisions — can help mitigate potential pitfalls.</p>
+</div>
+
+<div class="blog-nav">
+	<a href="blogs.html">← Back to Blogs</a>
+	<a href="third_blog.html">Next Post →</a>
+</div>
+
+<footer>
+	<a href="index.html" class="footer-logo">Analytical Nexus</a>
+	<ul class="footer-links">
+		<li><a href="index.html">Projects</a></li>
+		<li><a href="about.html">About</a></li>
+		<li><a href="blogs.html">Blogs</a></li>
+		<li><a href="https://www.linkedin.com/in/aparna-s-51113815a">LinkedIn</a></li>
+		<li><a href="https://github.com/AparnaSuryan/Portfolio">GitHub</a></li>
+	</ul>
+	<span class="footer-copy">© 2025 Aparna Suryanarayanan · Berlin</span>
+</footer>
+
+</body>
+</html>
