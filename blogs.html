@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Blogs | Aparna Suryanarayanan</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+	<style>
+		*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+		:root {
+			--teal: #1D9E75; --teal-dark: #0F6E56;
+			--purple: #534AB7; --coral: #D85A30; --amber: #BA7517;
+			--bg: #0a0a0f; --bg2: #13131c; --bg3: #1c1c28;
+			--text: #f0f0f0; --text-muted: #9090a8;
+			--border: rgba(255,255,255,0.08);
+		}
+		html { scroll-behavior: smooth; }
+		body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+
+		nav {
+			position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+			display: flex; align-items: center; justify-content: space-between;
+			padding: 1.2rem calc((100% - 1200px) / 2 + 2rem);
+			background: rgba(10,10,15,0.85); backdrop-filter: blur(12px);
+			border-bottom: 1px solid var(--border);
+		}
+		.nav-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--teal); text-decoration: none; }
+		.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+		.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+		.nav-links a:hover, .nav-links a.active { color: var(--teal); }
+		.nav-icons { display: flex; gap: 1rem; list-style: none; }
+		.nav-icons a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+		.nav-icons a:hover { color: var(--teal); }
+
+		.page-header {
+			padding: 8rem calc((100% - 1200px) / 2 + 2rem) 4rem;
+			position: relative; overflow: hidden;
+		}
+		.page-header::before {
+			content: ''; position: absolute; top: -100px; right: -100px;
+			width: 500px; height: 500px;
+			background: radial-gradient(circle, rgba(83,74,183,0.1) 0%, transparent 70%);
+			pointer-events: none;
+		}
+		.section-label { font-size: 0.8rem; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+		.page-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; }
+		.page-sub { color: var(--text-muted); font-size: 1rem; max-width: 500px; }
+
+		main { padding: 2rem calc((100% - 1200px) / 2 + 2rem) 6rem; }
+
+		.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+
+		.blog-card {
+			background: var(--bg2); border: 1px solid var(--border);
+			border-radius: 16px; overflow: hidden;
+			transition: border-color 0.3s, transform 0.3s;
+			text-decoration: none; color: inherit; display: block;
+		}
+		.blog-card:hover { border-color: rgba(29,158,117,0.4); transform: translateY(-4px); }
+
+		.blog-cover {
+			width: 100%; height: 180px;
+			display: flex; align-items: center; justify-content: center;
+			font-size: 3rem;
+		}
+
+		.cover-purple { background: linear-gradient(135deg, #534AB720, #534AB705); }
+		.cover-teal { background: linear-gradient(135deg, #1D9E7520, #1D9E7505); }
+		.cover-amber { background: linear-gradient(135deg, #BA751720, #BA751705); }
+
+		.blog-body { padding: 1.5rem; }
+
+		.blog-tag {
+			display: inline-block;
+			font-size: 0.72rem; font-weight: 600;
+			text-transform: uppercase; letter-spacing: 0.08em;
+			margin-bottom: 0.75rem;
+		}
+		.tag-society { color: var(--purple); }
+		.tag-tech { color: var(--teal); }
+		.tag-mindset { color: var(--amber); }
+
+		.blog-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.3; }
+		.blog-excerpt { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem; }
+		.blog-link { color: var(--teal); font-size: 0.875rem; font-weight: 500; display: inline-flex; align-items: center; gap: 0.4rem; transition: gap 0.2s; }
+		.blog-link:hover { gap: 0.65rem; }
+
+		footer {
+			background: var(--bg2); border-top: 1px solid var(--border);
+			padding: 3rem calc((100% - 1200px) / 2 + 2rem); display: flex;
+			align-items: center; justify-content: space-between;
+		}
+		.footer-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--teal); text-decoration: none; }
+		.footer-links { display: flex; gap: 2rem; list-style: none; }
+		.footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+		.footer-links a:hover { color: var(--teal); }
+		.footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+
+		@media (max-width: 768px) {
+			nav { padding: 1rem 1.5rem; }
+			.nav-links { display: none; }
+			.page-header, main { padding-left: 1.5rem; padding-right: 1.5rem; }
+			footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+		}
+	</style>
+</head>
+<body>
+
+<nav>
+	<a href="index.html" class="nav-logo">Analytical Nexus</a>
+	<ul class="nav-links">
+		<li><a href="index.html">Projects</a></li>
+		<li><a href="about.html">About</a></li>
+		<li><a href="blogs.html" class="active">Blogs</a></li>
+	</ul>
+	<ul class="nav-icons">
+		<li><a href="https://www.linkedin.com/in/aparna-s-51113815a" title="LinkedIn">in</a></li>
+		<li><a href="https://github.com/AparnaSuryan/Portfolio" title="GitHub">gh</a></li>
+	</ul>
+</nav>
+
+<div class="page-header">
+	<div class="section-label">Blog</div>
+	<div class="page-title">Thoughts & Perspectives</div>
+	<p class="page-sub">Writing about data, technology, society, and the ideas that shape our world.</p>
+</div>
+
+<main>
+	<div class="blog-grid">
+
+		<a href="blogs.html" class="blog-card">
+			<div class="blog-cover cover-purple">🛍️</div>
+			<div class="blog-body">
+				<span class="blog-tag tag-society">Society & Tech</span>
+				<div class="blog-title">The Rise of Consumerism: How Social Media is Shaping Our Desires</div>
+				<p class="blog-excerpt">How social media platforms like Instagram and TikTok have transformed not just how we shop, but why — and the psychology of FOMO driving modern consumption.</p>
+				<span class="blog-link">Read more →</span>
+			</div>
+		</a>
+
+		<a href="second_blog.html" class="blog-card">
+			<div class="blog-cover cover-teal">🤖</div>
+			<div class="blog-body">
+				<span class="blog-tag tag-tech">AI & Hiring</span>
+				<div class="blog-title">Navigating AI in Job Applications: Progress or Pitfall?</div>
+				<p class="blog-excerpt">AI is reshaping recruitment — from resume screening to automated interviews. But at what cost to fairness, diversity, and the human element in hiring?</p>
+				<span class="blog-link">Read more →</span>
+			</div>
+		</a>
+
+		<a href="third_blog.html" class="blog-card">
+			<div class="blog-cover cover-amber">🌱</div>
+			<div class="blog-body">
+				<span class="blog-tag tag-mindset">Mindset</span>
+				<div class="blog-title">Overcoming Perfectionism: Embracing Humility and the Power of Letting It Be</div>
+				<p class="blog-excerpt">Perfectionism can feel like a motivator — but it often becomes a barrier. How humility and "letting it be" can unlock creativity, growth, and authentic progress.</p>
+				<span class="blog-link">Read more →</span>
+			</div>
+		</a>
+
+	</div>
+</main>
+
+<footer>
+	<a href="index.html" class="footer-logo">Analytical Nexus</a>
+	<ul class="footer-links">
+		<li><a href="index.html">Projects</a></li>
+		<li><a href="about.html">About</a></li>
+		<li><a href="blogs.html">Blogs</a></li>
+		<li><a href="https://www.linkedin.com/in/aparna-s-51113815a">LinkedIn</a></li>
+		<li><a href="https://github.com/AparnaSuryan/Portfolio">GitHub</a></li>
+	</ul>
+	<span class="footer-copy">© 2025 Aparna Suryanarayanan · Amsterdam</span>
+</footer>
+
+</body>
+</html>
